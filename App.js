@@ -1,16 +1,16 @@
 import React from 'react';
 import StackNavigator from './StackNavigator';
-import { NavigatorContainer } from '@react-navigation/native';
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs(); // Ignore log notification by message
 import { AuthProvider } from './hooks/useAuth';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
 	return (
-		<NavigatorContainer>
-			{/* HOC - Higher Order Component */}
+		<NavigationContainer>
 			<AuthProvider>
-				{/* Passes down the cool auth stuff to children.. */}
 				<StackNavigator />
 			</AuthProvider>
-		</NavigatorContainer>
+		</NavigationContainer>
 	);
 }
